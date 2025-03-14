@@ -32,7 +32,7 @@ public class BloodTestQueue implements PQInterface {
     //Removing a patient from the queue
     @Override
     public Patient dequeue(){
-        if (!queue.isEmpty()){
+        if (!isEmpty()){
             System.out.println("Removed" + queue.get(0));
             return queue.remove(0);
         }
@@ -43,7 +43,7 @@ public class BloodTestQueue implements PQInterface {
     //Getting next patient from the queue
     @Override
     public Patient getNextPatient(){
-        if (!queue.isEmpty()){
+        if (!isEmpty()){
             Patient next = queue.get(0);
             return next;
         }
@@ -51,6 +51,7 @@ public class BloodTestQueue implements PQInterface {
         return null;
     }
     
+    //Sorting the queue based on the comparisons
     @Override
     public void sortQueue(){
         Collections.sort(queue, new ComparePatients());
@@ -58,11 +59,13 @@ public class BloodTestQueue implements PQInterface {
     
     @Override
     public String printQueue(){
-       StringBuilder queueDetails = new StringBuilder();  // Use StringBuilder to efficiently build the output
+       StringBuilder queueDetails = new StringBuilder();
     
-        for (Patient patient : queue){
+       if (isEmpty()) return "";
+       
+       for (Patient patient : queue){
             String wardStatus = patient.isHospitalWard() ? "Yes" : "No";
-            queueDetails.append("-NEW PATIENT-")
+            queueDetails.append("--NEW PATIENT--")
                         .append("\nFull name: " + patient.getName())
                         .append("\nAge: " + patient.getAge())
                         .append("\nAddress: " + patient.getAddress())
@@ -72,12 +75,12 @@ public class BloodTestQueue implements PQInterface {
                         .append("\n\n");
         }
     
-    return queueDetails.toString(); 
+        return queueDetails.toString(); 
     }
     
     //Recursive function to search patient
     public Patient searchPatient(String name, int index) { 
-        //Base case
+        //Base case (reaching queue size)
         if (index >= queue.size()) {
             return null;
         }
@@ -86,6 +89,7 @@ public class BloodTestQueue implements PQInterface {
             return queue.get(index);
         }
 
+        //If patient was not found, go to next index
         return searchPatient(name, index + 1);
     }
     

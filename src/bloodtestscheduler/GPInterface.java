@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package bloodtestscheduler;
 
 /**
@@ -11,6 +7,7 @@ package bloodtestscheduler;
 
 public interface GPInterface {
     
+    //Creating the abstract methods
     public void addGP(String gpName);
     public Object findGP(String gpName);
     public void assignPatient(String gpName, Patient patient);

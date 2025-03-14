@@ -18,6 +18,7 @@ public class GPNode {
         this.next = null;
     }
 
+    //Adding patient to arraylist to access later
     public void addPatient(Patient p) {
         assignedPatients.add(p);
     }
@@ -36,7 +37,7 @@ public class GPNode {
             for (Patient p : assignedPatients){
                 sb.append("Name: ")
                   .append(p.getName())
-                  .append(" || Age: ")
+                  .append(" | Age: ")
                   .append(p.getAge())
                   .append("\n");
             }

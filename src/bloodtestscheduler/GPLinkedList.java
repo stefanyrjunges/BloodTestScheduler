@@ -18,7 +18,7 @@ public class GPLinkedList implements GPInterface {
     @Override
     public void addGP(String gpName) {
         GPNode newGP = new GPNode(gpName);
-        if (head == null) {
+        if (isEmpty()) {
             head = newGP;
         } else {
             GPNode temp = head;
@@ -42,7 +42,7 @@ public class GPLinkedList implements GPInterface {
         return null;
     }
 
-    //Assign a patient to a GP
+    //Assigning a patient to a GP
     @Override
     public void assignPatient(String gpName, Patient patient) {
         GPNode gp = findGP(gpName);
@@ -55,13 +55,20 @@ public class GPLinkedList implements GPInterface {
     @Override
     public String displayGPs() {
         StringBuilder gpInfo = new StringBuilder();
+        //Start at the head
         GPNode temp = head;
 
+        //Go through all elements until element is null
         while (temp != null) {
-            gpInfo.append("GP: ").append(temp.getGPName())
+            gpInfo.append("--GP-- ")
+                  .append("\n")
+                  .append("Doctor's name: ")
+                  .append(temp.getGPName())
                   .append(" | Patients:\n")
                   .append(temp.getPatients())
                   .append("\n");
+            
+            //Go to next element
             temp = temp.next;
         }
 

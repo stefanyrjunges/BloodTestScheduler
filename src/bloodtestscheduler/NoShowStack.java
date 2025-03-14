@@ -15,11 +15,16 @@ public class NoShowStack implements NSStackInterface {
         noShowStack = new ArrayList<>();
     }
 
+    @Override
+    public boolean isEmpty(){
+        return noShowStack.isEmpty();
+    }
+
     //Function to add a no-show patient to the stack
     @Override
     public void pushNoShow(Patient patient) {
         //Keeping the size to a max of 5
-        if (noShowStack.size() >= 6) {
+        if (noShowStack.size() >= 5) {
             noShowStack.remove(0);
         }
         noShowStack.add(patient);
@@ -30,7 +35,7 @@ public class NoShowStack implements NSStackInterface {
     public String displayStack() {
         StringBuilder sb = new StringBuilder();
 
-        if (noShowStack.isEmpty()) {
+        if (isEmpty()) {
             return "No patients to display.";
         }
 
@@ -49,20 +54,20 @@ public class NoShowStack implements NSStackInterface {
         return sb.toString();
     }
     
-    //Removing patient from stack
+    //Removing top patient from stack
     @Override
-    public Patient pop(){
-        if (!noShowStack.isEmpty()){
+    public Patient popNoShow(){
+        if (!isEmpty()){
             return noShowStack.remove(0);
         }    
         return null;
     }
     
-    //Clearing the stack
+    //Clearing the stack by removing one element by one
     @Override
     public void emptyStack() {
-        while (!noShowStack.isEmpty()) {
-            pop();
+        while (!isEmpty()) {
+            popNoShow();
         }
     }
 }

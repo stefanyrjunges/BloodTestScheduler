@@ -531,6 +531,16 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTFActionPerformed
 
+    public void clearFields(){
+        nameTF.setText("");
+        ageTF.setText("");
+        addressTF.setText("");
+        phoneNoTF.setText("");
+        priorityTF.setText("");
+        gpTF.setText("");
+        isWardCB.setSelected(false);
+    }
+    
     private void submitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBTNActionPerformed
         String name = nameTF.getText();
         int age = Integer.parseInt(ageTF.getText());
@@ -563,6 +573,10 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         }
         
         gpLL.displayGPs();
+        
+        clearFields();
+        
+        JOptionPane.showMessageDialog(null, "New request added succesfully!");
         
     }//GEN-LAST:event_submitBTNActionPerformed
 

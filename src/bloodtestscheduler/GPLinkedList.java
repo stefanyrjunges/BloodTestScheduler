@@ -4,14 +4,16 @@
  */
 package bloodtestscheduler;
 
-public class GPLinkedList {
+public class GPLinkedList implements GPInterface {
     
     private GPNode head; 
     
+    @Override
     public boolean isEmpty() {
         return head == null;
     }
 
+    @Override
     public void addGP(String gpName) {
         GPNode newGP = new GPNode(gpName);
         if (head == null) {
@@ -25,6 +27,7 @@ public class GPLinkedList {
         }
     }
 
+    @Override
     public GPNode findGP(String gpName) {
         GPNode temp = head;
         while (temp != null) {
@@ -36,6 +39,7 @@ public class GPLinkedList {
         return null;
     }
 
+    @Override
     public void assignPatient(String gpName, Patient patient) {
         GPNode gp = findGP(gpName);
         if (gp != null) {
@@ -43,6 +47,7 @@ public class GPLinkedList {
         }
     }
 
+    @Override
     public String displayGPs() {
         StringBuilder gpInfo = new StringBuilder();
         GPNode temp = head;

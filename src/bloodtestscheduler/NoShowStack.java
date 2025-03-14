@@ -34,12 +34,12 @@ public class NoShowStack {
 
         for (Patient p : noShows) {
             sb.append("--NO SHOW PATIENT--")
-              .append("Full name: ").append(p.getName())
+              .append("\nFull name: ").append(p.getName())
               .append("\nAge: ").append(p.getAge())
               .append("\nAddress: ").append(p.getAddress())
               .append("\nPhone: ").append(p.getPhoneNo())
               .append("\nPriority: ").append(p.getPriorityLvl())
-              .append("\nIs patient in ward? ").append(p.isHospitalWard() ? "Yes" : "No")
+              .append("\nIs patient in hospital ward? ").append(p.isHospitalWard() ? "Yes" : "No")
               .append("\n\n");
         }
 

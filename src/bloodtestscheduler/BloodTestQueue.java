@@ -68,7 +68,7 @@ public class BloodTestQueue implements PQInterface {
                         .append("\nAddress: " + patient.getAddress())
                         .append("\nPhone number: " + patient.getPhoneNo())
                         .append("\nPriority: " + patient.getPriorityLvl())
-                        .append("\nIn hospital ward? " + wardStatus)
+                        .append("\nIs patient in hospital ward? " + wardStatus)
                         .append("\n\n");
         }
     

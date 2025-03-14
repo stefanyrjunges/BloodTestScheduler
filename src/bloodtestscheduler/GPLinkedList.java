@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package bloodtestscheduler;
+
+/**
+ * @author Stefany Junges
+ * 14/03/2025
+ */
 
 public class GPLinkedList implements GPInterface {
     
@@ -13,6 +14,7 @@ public class GPLinkedList implements GPInterface {
         return head == null;
     }
 
+    //Adding a new GP to the list
     @Override
     public void addGP(String gpName) {
         GPNode newGP = new GPNode(gpName);
@@ -27,6 +29,7 @@ public class GPLinkedList implements GPInterface {
         }
     }
 
+    //Finding a GP in the list
     @Override
     public GPNode findGP(String gpName) {
         GPNode temp = head;
@@ -39,6 +42,7 @@ public class GPLinkedList implements GPInterface {
         return null;
     }
 
+    //Assign a patient to a GP
     @Override
     public void assignPatient(String gpName, Patient patient) {
         GPNode gp = findGP(gpName);
@@ -47,6 +51,7 @@ public class GPLinkedList implements GPInterface {
         }
     }
 
+    //Display all GPs and their assigned patients
     @Override
     public String displayGPs() {
         StringBuilder gpInfo = new StringBuilder();
@@ -54,12 +59,13 @@ public class GPLinkedList implements GPInterface {
 
         while (temp != null) {
             gpInfo.append("GP: ").append(temp.getGPName())
-                  .append(" | Patients: ").append(temp.getPatients().size())
+                  .append(" | Patients:\n")
+                  .append(temp.getPatients())
                   .append("\n");
             temp = temp.next;
         }
 
-        return gpInfo.toString(); // Set text in JTextArea
+        return gpInfo.toString();
     }
 }
   

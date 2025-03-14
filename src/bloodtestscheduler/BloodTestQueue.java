@@ -9,7 +9,7 @@ import java.util.Collections;
  */
 
 public class BloodTestQueue implements PQInterface {
-    
+    //Using an arraylist to implement the queue
     private ArrayList<Patient> queue;
     
     public BloodTestQueue(){
@@ -21,12 +21,15 @@ public class BloodTestQueue implements PQInterface {
         return queue.isEmpty();
     }
     
+    //Adding a patient to the queue
     @Override
     public void enqueue(int priorityLvl, Patient patient){
         queue.add(patient);
+        //Sorting the queue to maintain priority
         sortQueue();
     }
     
+    //Removing a patient from the queue
     @Override
     public Patient dequeue(){
         if (!queue.isEmpty()){
@@ -37,6 +40,7 @@ public class BloodTestQueue implements PQInterface {
         return null;
     }
     
+    //Getting next patient from the queue
     @Override
     public Patient getNextPatient(){
         if (!queue.isEmpty()){

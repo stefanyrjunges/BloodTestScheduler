@@ -5,8 +5,10 @@
 package bloodtestscheduler;
 
 /**
- * @author Stefany
+ * @author Stefany Junges
+ * 14/03/2025
  */
+
 public interface GPInterface {
     
     public void addGP(String gpName);

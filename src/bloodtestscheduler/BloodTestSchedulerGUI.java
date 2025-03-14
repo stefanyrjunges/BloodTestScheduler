@@ -69,6 +69,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         tabbedPane = new javax.swing.JTabbedPane();
         dashboardPNL = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,6 +77,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
         newRequestPNL = new javax.swing.JPanel();
         newRequestLBL = new javax.swing.JLabel();
         nameLBL = new javax.swing.JLabel();
@@ -111,6 +113,10 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         noShowLBL = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         noShowListTA = new javax.swing.JTextArea();
+        removePatientBTN = new javax.swing.JButton();
+        clearListBTN = new javax.swing.JButton();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,6 +156,10 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 51, 102));
         jSeparator1.setForeground(new java.awt.Color(255, 51, 102));
         dashboardPNL.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 241, -1));
+
+        jLabel1.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 10)); // NOI18N
+        jLabel1.setText("MENU");
+        dashboardPNL.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 40, -1));
 
         tabbedPane.addTab("dashboard", dashboardPNL);
 
@@ -389,7 +399,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
                         .addGroup(schedulePNLLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(searchPatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         schedulePNLLayout.setVerticalGroup(
             schedulePNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,7 +446,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         gpPNLLayout.setHorizontalGroup(
             gpPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gpPNLLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(gpPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2)
                     .addComponent(gpTitleLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -467,6 +477,30 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         noShowListTA.setRows(5);
         jScrollPane3.setViewportView(noShowListTA);
 
+        removePatientBTN.setBackground(new java.awt.Color(255, 51, 102));
+        removePatientBTN.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
+        removePatientBTN.setForeground(new java.awt.Color(255, 255, 255));
+        removePatientBTN.setText("REMOVE PATIENT");
+        removePatientBTN.setBorder(null);
+        removePatientBTN.setBorderPainted(false);
+        removePatientBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removePatientBTNActionPerformed(evt);
+            }
+        });
+
+        clearListBTN.setBackground(new java.awt.Color(255, 51, 102));
+        clearListBTN.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
+        clearListBTN.setForeground(new java.awt.Color(255, 255, 255));
+        clearListBTN.setText("CLEAR LIST");
+        clearListBTN.setBorder(null);
+        clearListBTN.setBorderPainted(false);
+        clearListBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearListBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout noShowPNLLayout = new javax.swing.GroupLayout(noShowPNL);
         noShowPNL.setLayout(noShowPNLLayout);
         noShowPNLLayout.setHorizontalGroup(
@@ -476,8 +510,11 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
                 .addComponent(noShowLBL)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, noShowPNLLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addGroup(noShowPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(removePatientBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                    .addComponent(clearListBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
         noShowPNLLayout.setVerticalGroup(
@@ -485,9 +522,13 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
             .addGroup(noShowPNLLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(noShowLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addComponent(removePatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clearListBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("no-shows", noShowPNL);
@@ -499,7 +540,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tabbedPane)
-                .addGap(15, 15, 15))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,7 +624,12 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     private void removeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBTNActionPerformed
         patientQueue.dequeue();
         scheduleTA.setText("");
-        scheduleTA.setText(patientQueue.printQueue());
+        
+        if (!patientQueue.isEmpty()){
+            scheduleTA.setText(patientQueue.printQueue());
+        } else {
+            scheduleTA.setText("No patients in the system.");
+        }
     }//GEN-LAST:event_removeBTNActionPerformed
 
     private void tabbedPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabbedPaneMouseClicked
@@ -625,11 +671,22 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_searchGPBTNActionPerformed
 
     private void noShowBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noShowBTNActionPerformed
-        noShowStack.addNoShow(patientQueue.getNextPatient());
+        noShowStack.pushNoShow(patientQueue.getNextPatient());
         patientQueue.dequeue();
         scheduleTA.setText("");
         scheduleTA.setText(patientQueue.printQueue());
     }//GEN-LAST:event_noShowBTNActionPerformed
+
+    private void removePatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePatientBTNActionPerformed
+        noShowStack.pop();
+        noShowListTA.setText("");
+        noShowListTA.setText(noShowStack.displayStack());
+    }//GEN-LAST:event_removePatientBTNActionPerformed
+
+    private void clearListBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearListBTNActionPerformed
+        noShowStack.emptyStack();
+        noShowListTA.setText("No no-shows to display.");
+    }//GEN-LAST:event_clearListBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -671,6 +728,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField addressTF;
     private javax.swing.JLabel ageLBL;
     private javax.swing.JTextField ageTF;
+    private javax.swing.JButton clearListBTN;
     private javax.swing.JPanel dashboardPNL;
     private javax.swing.JLabel fillInLBL;
     private javax.swing.JLabel gpLBL;
@@ -681,6 +739,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     private javax.swing.JButton infoBTN;
     private javax.swing.JCheckBox isWardCB;
     private javax.swing.JLabel isWardLBL;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -689,6 +748,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel nameLBL;
     private javax.swing.JTextField nameTF;
     private javax.swing.JLabel newRequestLBL;
@@ -702,6 +762,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel priorityLBL;
     private javax.swing.JTextField priorityTF;
     private javax.swing.JButton removeBTN;
+    private javax.swing.JButton removePatientBTN;
     private javax.swing.JPanel schedulePNL;
     private javax.swing.JTextArea scheduleTA;
     private javax.swing.JButton searchGPBTN;

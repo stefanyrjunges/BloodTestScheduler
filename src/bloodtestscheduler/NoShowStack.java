@@ -6,24 +6,27 @@ package bloodtestscheduler;
 
 import java.util.ArrayList;
 
-public class NoShowStack {
+public class NoShowStack implements NSStackInterface {
     private ArrayList<Patient> noShowStack;
 
     public NoShowStack() {
         this.noShowStack = new ArrayList<>();
     }
 
-    public void addNoShow(Patient p) {
+    @Override
+    public void pushNoShow(Patient patient) {
         if (noShowStack.size() >= 5) {
             noShowStack.remove(0); // Remove oldest entry (First In)
         }
-        noShowStack.add(p); // Add newest entry (Last In)
+        noShowStack.add(patient); // Add newest entry (Last In)
     }
 
+    @Override
     public ArrayList<Patient> getNoShows() {
         return new ArrayList<>(noShowStack);
     }
     
+    @Override
     public String displayStack() {
         StringBuilder sb = new StringBuilder();
         ArrayList<Patient> noShows = getNoShows();
@@ -45,4 +48,20 @@ public class NoShowStack {
 
         return sb.toString();
     }
+    
+    @Override
+    public Patient pop(){
+        if (!(noShowStack.isEmpty())){
+            return noShowStack.remove(0);
+        }
+        
+        return null;
+    }
+    
+    @Override
+    public void emptyStack() {
+        while (!noShowStack.isEmpty()) {
+            pop();
+        }
+}
 }

@@ -16,5 +16,4 @@ public interface NSStackInterface {
     public Object pop();
     public void emptyStack();
     
-    
 }

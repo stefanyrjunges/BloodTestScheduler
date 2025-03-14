@@ -9,12 +9,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
- *
- * @author stefa
+ * @author Stefany Junges
+ * 14/03/2025
  */
+
 public class BloodTestSchedulerGUI extends javax.swing.JFrame {
 
     private final BloodTestQueue patientQueue = new BloodTestQueue();
@@ -25,6 +25,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
      */
     public BloodTestSchedulerGUI() {
         initComponents();
+        //Changing the look of UI
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             SwingUtilities.updateComponentTreeUI(tabbedPane);
@@ -32,25 +33,24 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         
+            //Perform actions based on the selected tab
             tabbedPane.addChangeListener((ChangeEvent e) -> {
-                int selectedIndex = tabbedPane.getSelectedIndex(); // Get the selected tab index
-                // Perform actions based on the selected tab
+                int selectedIndex = tabbedPane.getSelectedIndex();
                 switch (selectedIndex) {
-                    case 0 -> System.out.println("Dash");
-                    // Call a method here to perform action X
-                    case 1 -> System.out.println("New ");
-                    // Call a method here to perform action Y
+                    case 0 -> System.out.println("Dashboard");
+                    case 1 -> System.out.println("New request");
                     case 2 -> {
+                        System.out.println("Patient list");
                         scheduleTA.setText(patientQueue.printQueue());
                         if (patientQueue.isEmpty()) scheduleTA.setText("No patients in the system.");
                     }
                     case 3 -> {
-                        System.out.println("GPS ");
+                        System.out.println("GPs list");
                         gpListTA.setText(gpLL.displayGPs());
                         if (gpLL.isEmpty()) gpListTA.setText("No GPs in the system.");
                     }
                     case 4 -> {
-                        System.out.println("GeeeePS ");
+                        System.out.println("No show list");
                         noShowListTA.setText(noShowStack.displayStack());
                     }
                     default -> {
@@ -77,7 +77,6 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
         newRequestPNL = new javax.swing.JPanel();
         newRequestLBL = new javax.swing.JLabel();
         nameLBL = new javax.swing.JLabel();
@@ -156,10 +155,6 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 51, 102));
         jSeparator1.setForeground(new java.awt.Color(255, 51, 102));
         dashboardPNL.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 241, -1));
-
-        jLabel1.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 10)); // NOI18N
-        jLabel1.setText("MENU");
-        dashboardPNL.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 40, -1));
 
         tabbedPane.addTab("dashboard", dashboardPNL);
 
@@ -445,13 +440,13 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         gpPNL.setLayout(gpPNLLayout);
         gpPNLLayout.setHorizontalGroup(
             gpPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gpPNLLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(gpPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(gpTitleLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(searchGPBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(gpPNLLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(gpPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(searchGPBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gpTitleLBL)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         gpPNLLayout.setVerticalGroup(
             gpPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,9 +455,9 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
                 .addComponent(gpTitleLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchGPBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGap(71, 71, 71))
         );
 
         tabbedPane.addTab("general practictioners", gpPNL);
@@ -520,7 +515,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         noShowPNLLayout.setVerticalGroup(
             noShowPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(noShowPNLLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(32, 32, 32)
                 .addComponent(noShowLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -528,7 +523,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
                 .addComponent(removePatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clearListBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("no-shows", noShowPNL);
@@ -554,14 +549,13 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    
     
     private void isWardCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isWardCBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_isWardCBActionPerformed
 
     private void infoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoBTNActionPerformed
+        //Display information about different levels of priority to the user
         JOptionPane.showMessageDialog(null, """
                                             Urgent: Requires immediate attention and should be handled as soon as possible.
                                             Medium: Needs attention soon but is not as critical as urgent cases.
@@ -601,11 +595,10 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
             default -> 1;
         };
         
+        //Adding patient to priority queue
         patientQueue.enqueue(key, patient);
         
-        System.out.println(patientQueue.printQueue());
-        System.out.println(key);
-        
+        //Checking if GP is already in the system
         if (gpLL.findGP(gpName) != null) {
             gpLL.assignPatient(gpName, patient);
         } else {
@@ -613,18 +606,18 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
             gpLL.assignPatient(gpName, patient);
         }
         
-        gpLL.displayGPs();
-        
         clearFields();
-        
+     
         JOptionPane.showMessageDialog(null, "New request added succesfully!");
         
     }//GEN-LAST:event_submitBTNActionPerformed
 
     private void removeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBTNActionPerformed
+        //Remove first patient
         patientQueue.dequeue();
         scheduleTA.setText("");
         
+        //Check if patient queue is empty
         if (!patientQueue.isEmpty()){
             scheduleTA.setText(patientQueue.printQueue());
         } else {
@@ -637,11 +630,14 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tabbedPaneMouseClicked
 
     private void searchPatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPatientBTNActionPerformed
-        if (patientQueue.isEmpty()) JOptionPane.showMessageDialog(null, "No patients in the system.");
-        else {
+        if (patientQueue.isEmpty()){
+            JOptionPane.showMessageDialog(null, "No patients in the system.");
+        } else {
             String searchPName = JOptionPane.showInputDialog(null, "Please input patient's name");
+            //Search name starting by index 0
             Patient foundPatient = patientQueue.searchPatient(searchPName, 0);
 
+            //If patient was found, display information
             if (foundPatient != null){
                 scheduleTA.setText("");
                 scheduleTA.setText("Patient found:\n" +
@@ -662,28 +658,35 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         gpListTA.setText("");
        
         GPNode gpNode = gpLL.findGP(searchGPName);
-        
+       
+        //If gpNode is not empty
         if (gpNode != null) {
-            gpListTA.setText("GP: " + gpNode.getGPName() + "\nPatients: " + gpNode.getPatients().size());
+            gpListTA.setText("GP: " + gpNode.getGPName() + "\nPatients: " + gpNode.getPatients());
         } else {
             gpListTA.setText("GP not found.");
         }
     }//GEN-LAST:event_searchGPBTNActionPerformed
 
     private void noShowBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noShowBTNActionPerformed
+        //Adding a no-show to the stack
         noShowStack.pushNoShow(patientQueue.getNextPatient());
+        //Removing from the queue
         patientQueue.dequeue();
         scheduleTA.setText("");
+        //Printing updated queue
         scheduleTA.setText(patientQueue.printQueue());
     }//GEN-LAST:event_noShowBTNActionPerformed
 
     private void removePatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePatientBTNActionPerformed
+        //Removing first no-show patient from stack
         noShowStack.pop();
         noShowListTA.setText("");
+        //Printing updated stack
         noShowListTA.setText(noShowStack.displayStack());
     }//GEN-LAST:event_removePatientBTNActionPerformed
 
     private void clearListBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearListBTNActionPerformed
+        //Calling function to empty stack
         noShowStack.emptyStack();
         noShowListTA.setText("No no-shows to display.");
     }//GEN-LAST:event_clearListBTNActionPerformed
@@ -739,7 +742,6 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
     private javax.swing.JButton infoBTN;
     private javax.swing.JCheckBox isWardCB;
     private javax.swing.JLabel isWardLBL;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

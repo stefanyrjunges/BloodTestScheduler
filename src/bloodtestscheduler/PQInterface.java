@@ -1,11 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package bloodtestscheduler;
+
+/**
+ * @author Stefany Junges
+ * 14/03/2025
+ */
 
 public interface PQInterface {
     
+    //Creating the abstract methods
     public void enqueue(int priorityLvl, Patient patient);
     public Object dequeue();
     public Patient getNextPatient();

@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package bloodtestscheduler;
+
+/**
+ * @author Stefany Junges
+ * 14/03/2025
+ */
 
 import java.util.ArrayList;
 
@@ -10,15 +11,16 @@ public class NoShowStack implements NSStackInterface {
     private ArrayList<Patient> noShowStack;
 
     public NoShowStack() {
-        this.noShowStack = new ArrayList<>();
+        noShowStack = new ArrayList<>();
     }
 
+    //Function to add a no-show patient to the stack
     @Override
     public void pushNoShow(Patient patient) {
         if (noShowStack.size() >= 5) {
-            noShowStack.remove(0); // Remove oldest entry (First In)
+            noShowStack.remove(0);
         }
-        noShowStack.add(patient); // Add newest entry (Last In)
+        noShowStack.add(patient);
     }
 
     @Override

@@ -417,7 +417,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
 
         gpTitleLBL.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 24)); // NOI18N
         gpTitleLBL.setForeground(new java.awt.Color(81, 81, 81));
-        gpTitleLBL.setText("GENERAL PRACTICIONERS");
+        gpTitleLBL.setText("GENERAL PRACTITIONERS");
 
         gpListTA.setEditable(false);
         gpListTA.setColumns(20);
@@ -461,7 +461,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
                 .addGap(71, 71, 71))
         );
 
-        tabbedPane.addTab("general practictioners", gpPNL);
+        tabbedPane.addTab("general practitioners", gpPNL);
 
         noShowLBL.setFont(new java.awt.Font("Microsoft New Tai Lue", 1, 24)); // NOI18N
         noShowLBL.setForeground(new java.awt.Color(81, 81, 81));
@@ -590,6 +590,7 @@ public class BloodTestSchedulerGUI extends javax.swing.JFrame {
         
         Patient patient = new Patient(name, address, phoneNo, priorityLvl, age, isWardSelected);
         
+        //Giving numerical values to different priority levels
         key = switch (priorityLvl.toLowerCase()) {
             case "urgent" -> 3;
             case "medium" -> 2;

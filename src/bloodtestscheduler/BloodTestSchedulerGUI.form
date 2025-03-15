@@ -600,8 +600,8 @@
         <Container class="javax.swing.JPanel" name="gpPNL">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="general practictioners">
-                <Property name="tabTitle" type="java.lang.String" value="general practictioners"/>
+              <JTabbedPaneConstraints tabName="general practitioners">
+                <Property name="tabTitle" type="java.lang.String" value="general practitioners"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -643,7 +643,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="51" green="51" red="51" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="GENERAL PRACTICIONERS"/>
+                <Property name="text" type="java.lang.String" value="GENERAL PRACTITIONERS"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">

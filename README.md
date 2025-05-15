@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6edbb126-4578-46d1-9fb6-b819ca5a0e50)# 🩺 BloodTestScheduler <br> Final Grade: 81%</h2>
+# 🩺 BloodTestScheduler <br> Final Grade: 81%</h2>
 ## 📚 About the Project
 
 **BloodTestScheduler** is a Java GUI-based application designed as part of a practical assignment for the **Data Structures and Algorithms** module.
